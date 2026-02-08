@@ -3,5 +3,5 @@ export const siteConfig = {
     tagline: "Engineering Secure, Intelligent Systems for Tomorrow",
     description:
         "FBT builds secure, scalable, and intelligent software systems for startups and security-critical organizations.",
-    url: "https://futurebeyondtechnology.com",
+    url: "https://futurebeyondtech.in",
 };
