@@ -1,22 +1,29 @@
+import Container from "@/components/layout/Container";
 import {defaultMetadata} from "@/lib/seo";
 
 export const metadata = defaultMetadata(
-    "Service",
+    "Services",
     "Secure, scalable, and intelligent software engineering for startups and security-critical organizations."
 );
 export default function ServicesPage() {
     return (
-        <section className="py-24">
-            <div className="mx-auto max-w-6xl space-y-16 px-4">
-                <header className="text-center">
-                    <h1 className="text-3xl font-semibold">Our Services</h1>
-                    <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-                        We help organizations build secure, scalable, and intelligent
-                        systems — designed for longevity, not shortcuts.
-                    </p>
-                </header>
+        <section className="py-20 sm:py-24 lg:py-32" aria-labelledby="services-heading">
+            <Container>
+                <div className="space-y-12 sm:space-y-16">
+                    <header className="text-center">
+                        <p className="text-xs font-medium uppercase tracking-wider text-slate-500 sm:text-sm">
+                            Offerings
+                        </p>
+                        <h1 id="services-heading" className="mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+                            Our Services
+                        </h1>
+                        <p className="mt-3 max-w-2xl mx-auto text-sm text-slate-600 sm:mt-4 sm:text-base">
+                            We help organizations build secure, scalable, and intelligent
+                            systems — designed for longevity, not shortcuts.
+                        </p>
+                    </header>
 
-                <div className="grid gap-12 md:grid-cols-2">
+                    <div className="grid gap-6 sm:gap-8 md:gap-10 md:grid-cols-2">
                     <Service
                         title="Product Engineering"
                         description="We design and build production-grade software products using clean architecture, modern stacks, and scalable system design."
@@ -33,8 +40,9 @@ export default function ServicesPage() {
                         title="Architecture & Consulting"
                         description="We guide teams in making the right technical decisions early, avoiding costly rewrites and architectural debt."
                     />
+                    </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }
@@ -47,9 +55,9 @@ function Service({
     description: string;
 }) {
     return (
-        <div className="rounded-xl border p-8">
-            <h2 className="text-xl font-semibold">{title}</h2>
-            <p className="mt-4 text-slate-600">{description}</p>
-        </div>
+        <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow sm:p-8 hover:shadow-md">
+            <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">{title}</h2>
+            <p className="mt-3 text-sm text-slate-600 sm:mt-4 sm:text-base leading-relaxed">{description}</p>
+        </article>
     );
 }

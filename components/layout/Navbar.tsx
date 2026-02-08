@@ -10,21 +10,24 @@ const navItems = [
 
 export default function Navbar() {
     return (
-        <header className="border-b bg-white">
+        <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm">
             <Container>
-                <div className="flex h-16 items-center justify-between">
+                <div className="flex h-14 sm:h-16 items-center justify-between gap-4">
                     {/* Brand */}
-                    <Link href="/" className="font-semibold text-lg tracking-tight">
+                    <Link
+                        href="/"
+                        className="shrink-0 font-semibold text-base tracking-tight text-slate-900 sm:text-lg transition-colors hover:text-slate-700 focus-visible:rounded focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
+                    >
                         FBT
                     </Link>
 
                     {/* Navigation */}
-                    <nav className="hidden md:flex items-center gap-8 text-sm text-slate-700">
+                    <nav className="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main navigation">
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="hover:text-slate-900 transition"
+                                className="rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
                             >
                                 {item.name}
                             </Link>
@@ -34,9 +37,10 @@ export default function Navbar() {
                     {/* CTA */}
                     <Link
                         href="/contact"
-                        className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white"
+                        className="shrink-0 rounded-lg bg-slate-900 px-3 py-2.5 text-sm font-medium text-white min-h-[44px] flex items-center justify-center transition-colors hover:bg-slate-800 focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 sm:px-4"
                     >
-                        Start a Conversation
+                        <span className="hidden whitespace-nowrap sm:inline">Start a Conversation</span>
+                        <span className="whitespace-nowrap sm:hidden">Contact</span>
                     </Link>
                 </div>
             </Container>
